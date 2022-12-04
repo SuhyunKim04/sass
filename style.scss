@@ -1,0 +1,173 @@
+// @use "sass:color";
+
+.page {
+    $w : 300px;
+    width:$w;
+    $red : #ff1234;
+    
+    @at-root .b{
+        color:$red;
+        width: calc($w / 2);
+    }
+}
+  
+%title-s {
+    font-size:14px;
+    font-weight:600;
+    color:#000;
+}
+
+
+%title-m {
+    font-size:20px;
+    font-weight:900;
+    color:#333;
+}
+
+%title-b {
+    font-size:50px;
+    font-weight:900;
+    color:blue;
+}
+
+
+.page-header {
+    height:20px;
+}
+
+
+
+h1 {
+    @extend %title-s;
+    @extend .btn-ham;
+}
+
+caption {
+    @extend %title-m;
+}
+
+.header strong {
+    @extend %title-s;
+}
+
+.list {
+    color:red;
+    font-size:14px;
+
+    li {
+        margin:10px 0;
+        &:hover {
+            background-color:darken(olive, 20%);
+        }
+    }
+}
+
+%shadow-box {
+    background-color:#fff;
+    box-shadow:0 0 10px rgba(black, 0.2);
+    border-radius:20px;
+    padding:10px;
+    font-size:20px;
+    text-align:center;
+}
+
+
+@mixin shadow-box($color) {
+    @extend %shadow-box;
+    background-color:$color;
+}
+@mixin shadow-box2($color, $opacity) {
+    @extend %shadow-box;
+    box-shadow:0 0 10px rgba($color, $opacity);
+}
+
+.box {
+    @extend %shadow-box;
+}
+
+.box3 {
+    @include shadow-box2(red, 0.5);
+}
+
+.box2 {
+    @include shadow-box(red);
+}
+
+.menu-list {
+    background-color:pink;
+    @extend .list;
+}
+
+
+@media all and (max-width:300px) {
+   /*
+    h1 {
+        @extend %title-m;
+    }
+    */
+
+    %title-s {
+        font-size:50px;
+    }
+
+}
+
+
+$colors : #ff0000, #00ff00, #0000ff;
+$sizes : 20px, 50px, 100px;
+$text-colors : (
+    primary : #ff3300,
+    secondary : #33ff00,
+    third : #3333ff
+);
+
+.a {
+    background-color:nth($colors, 3)
+}
+
+.b {
+    background-color:map-get($text-colors, primary);
+}
+
+@each $size in $sizes {
+    .icon-#{$size} {
+        width:$size;
+        height:$size;
+        font-size:$size;
+    }
+}
+
+
+@each $text-color, $item in $text-colors {
+    .box-#{$text-color} {
+        background-color:$item;
+    }
+}
+
+$red : #ff0000;
+
+.c {
+    background-color:lighten($red, 20%);
+}
+.d {
+    background-color: $red;
+}
+ 
+.e {
+    background-color: darken($red, 20%)
+}
+.f {
+    background-color: darken($red, 30%);
+    color:#fff;
+}
+
+/*
+.g {
+    background-color: color.scale($red, $blackness:30%);
+    color:#fff;
+}
+*/
+.h {
+    background-color: scale-color($red,$blackness:30%);
+    color:#fff;
+}
