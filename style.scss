@@ -35,8 +35,6 @@
     height:20px;
 }
 
-
-
 h1 {
     @extend %title-s;
     
@@ -109,7 +107,6 @@ caption {
     %title-s {
         font-size:50px;
     }
-
 }
 
 
@@ -170,4 +167,8 @@ $red : #ff0000;
 .h {
     background-color: scale-color($red,$blackness:30%);
     color:#fff;
+}
+
+.i{
+    background-color: scale-color($red, $lightness:20%);
 }
