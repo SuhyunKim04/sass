@@ -12,7 +12,7 @@
 }
   
 %title-s {
-    font-size:14px;
+    font-size:12px;
     font-weight:600;
     color:#000;
 }
@@ -172,3 +172,167 @@ $red : #ff0000;
 .i{
     background-color: scale-color($red, $lightness:20%);
 }
+
+
+$sizes : 10px, 20px, 30px;
+$text-colors : (
+    primary : #d7116d,
+    secondary : #33ff00,
+    third : #9696f0
+);
+
+$red:#ff0000;
+
+
+
+@mixin setGradient ($color, $count:10, $n:6 ) {
+    @for $i from 1 through $count {
+        li:nth-child(#{$i}) {  
+            // background-color:scale-color($color, $blackness: ($i * 10) * 1% );
+            background-color:adjust-hue($color, ($i * 10) * 1deg );
+            @if($i >= $n) {
+                color:scale-color($color, $blackness: ($i * 10) * 1%);
+            }
+        }
+    }
+}
+
+$primary : (
+    a : red,
+    b:blue,
+    c:green
+);
+
+
+
+$colors : #ff0000, #00ff00, #0000ff, rgb(233, 18, 204), rgb(219, 247, 4);
+
+@mixin setFlex ($width, $height, $font:null){
+    width: $width;
+    height: $height;
+    display: flex;
+    color: $font;
+    
+    li {
+        flex-grow: 1;
+
+    }
+}
+
+.colorList {
+
+    @for $i from 1 through 5 {
+        &:nth-of-type(#{$i}) {
+            $color:nth($colors, $i);
+            @include setGradient($color,$n:1);
+        }
+    }
+
+
+    
+    @include setFlex(700px, 50px );
+
+//     &:nth-of-type(1) {
+//         $color:nth($colors, 1);
+//         @include setGradient($color);
+//     }
+//     &:nth-of-type(2) {
+//         $color:nth($colors, 2);
+//         @include setGradient($color);
+//     }
+//     &:nth-of-type(3) {
+//         $color:nth($colors, 3);
+//         @include setGradient($color);
+
+        
+//     }
+}
+
+
+
+.colorList:nth-of-type(3) li:first-child { 
+    color:map-get($primary, a);
+}
+.listRed {
+    @include setGradient($red)
+}
+ 
+@mixin setFont( $size, $weight, $family:null) {
+    font-family:$family,sans-serif;
+    font-size:$size;
+    font-weight:$weight;
+
+    @content;
+}
+
+.i {
+    @include setFont('Arial black', 40px, 900) {
+        font-style:italic;
+    };
+}
+
+.h {
+    @include setFont(30px, 100);
+}
+
+@mixin media($width) {
+    @media all and (max-width:$width) {
+        @content;
+    }
+}
+
+@include media(480px) {
+    header {
+        width:50%;
+    }
+}
+
+.listBlue {
+    @include setGradient(blue, $n:1);
+}
+
+
+
+// .listRed {
+
+//     .list_a {
+//         background-color:nth($colors, 1)
+//     }
+
+//     .list_b{
+//         background-color:scale-color($red, $blackness:10%);
+//     }
+
+//     .list_c{
+//         background-color:scale-color($red, $blackness:20%);
+//     }
+
+//     .list_d{
+//         background-color:scale-color($red, $blackness:30%);
+//     }
+
+//     .list_e{
+//         background-color:scale-color($red, $blackness:40%);
+//     }
+
+//     .list_f{
+//         background-color:scale-color($red, $blackness:50%);
+//     }
+
+//     .list_g{
+//         background-color:scale-color($red, $blackness:60%);
+//     }
+
+//     .list_h{
+//         background-color:scale-color($red, $blackness:70%);
+//     }
+
+//     .list_i{
+//         background-color:scale-color($red, $blackness:80%);
+//     }
+
+//     .list_j{
+//         background-color:scale-color($red, $blackness:90%);
+//         color:#fff;
+//     }
+// }
