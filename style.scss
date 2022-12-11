@@ -248,8 +248,6 @@ $colors : #ff0000, #00ff00, #0000ff, rgb(233, 18, 204), rgb(219, 247, 4);
 //     }
 }
 
-
-
 .colorList:nth-of-type(3) li:first-child { 
     color:map-get($primary, a);
 }
@@ -291,48 +289,3 @@ $colors : #ff0000, #00ff00, #0000ff, rgb(233, 18, 204), rgb(219, 247, 4);
     @include setGradient(blue, $n:1);
 }
 
-
-
-// .listRed {
-
-//     .list_a {
-//         background-color:nth($colors, 1)
-//     }
-
-//     .list_b{
-//         background-color:scale-color($red, $blackness:10%);
-//     }
-
-//     .list_c{
-//         background-color:scale-color($red, $blackness:20%);
-//     }
-
-//     .list_d{
-//         background-color:scale-color($red, $blackness:30%);
-//     }
-
-//     .list_e{
-//         background-color:scale-color($red, $blackness:40%);
-//     }
-
-//     .list_f{
-//         background-color:scale-color($red, $blackness:50%);
-//     }
-
-//     .list_g{
-//         background-color:scale-color($red, $blackness:60%);
-//     }
-
-//     .list_h{
-//         background-color:scale-color($red, $blackness:70%);
-//     }
-
-//     .list_i{
-//         background-color:scale-color($red, $blackness:80%);
-//     }
-
-//     .list_j{
-//         background-color:scale-color($red, $blackness:90%);
-//         color:#fff;
-//     }
-// }
