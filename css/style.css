@@ -402,43 +402,43 @@ caption {
   }
 }
 .listBlue li:nth-child(1) {
-  background-color: #2b00ff;
-  color: #0000e6;
+  background-color: #49ff00;
+  color: #68e600;
 }
 .listBlue li:nth-child(2) {
-  background-color: #5500ff;
-  color: #0000cc;
+  background-color: #1eff00;
+  color: #5ccc00;
 }
 .listBlue li:nth-child(3) {
-  background-color: #8000ff;
-  color: #0000b3;
+  background-color: #00ff0d;
+  color: #51b300;
 }
 .listBlue li:nth-child(4) {
-  background-color: #aa00ff;
-  color: #000099;
+  background-color: #00ff37;
+  color: #459900;
 }
 .listBlue li:nth-child(5) {
-  background-color: #d500ff;
-  color: navy;
+  background-color: #00ff62;
+  color: #3a8000;
 }
 .listBlue li:nth-child(6) {
-  background-color: fuchsia;
-  color: #000066;
+  background-color: #00ff8c;
+  color: #2e6600;
 }
 .listBlue li:nth-child(7) {
-  background-color: #ff00d5;
-  color: #00004d;
+  background-color: #00ffb7;
+  color: #234d00;
 }
 .listBlue li:nth-child(8) {
-  background-color: #ff00aa;
-  color: #000033;
+  background-color: #00ffe1;
+  color: #173300;
 }
 .listBlue li:nth-child(9) {
-  background-color: #ff0080;
-  color: #00001a;
+  background-color: #00f3ff;
+  color: #0c1a00;
 }
 .listBlue li:nth-child(10) {
-  background-color: #ff0055;
+  background-color: #00c8ff;
   color: black;
 }
 

@@ -276,7 +276,7 @@ $colors : #ff0000, #00ff00, #0000ff, rgb(233, 18, 204), rgb(219, 247, 4);
     @media all and (max-width:$width) {
         @content;
     }
-}
+} 
 
 @include media(480px) {
     header {
@@ -285,6 +285,6 @@ $colors : #ff0000, #00ff00, #0000ff, rgb(233, 18, 204), rgb(219, 247, 4);
 }
 
 .listBlue {
-    @include setGradient(blue, $n:1);
+    @include setGradient(rgb(115, 255, 0), $n:1);
 }
 
