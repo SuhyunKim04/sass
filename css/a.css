@@ -1,141 +1,17 @@
-.box1 {
-  background-color: red;
-}
+/* Error: expected "{".
+ *     ,
+ * 329 |     @include icon($name);
+ *     |                         ^
+ *     '
+ *   scss/a.scss 329:25  root stylesheet */
 
-.box2 {
-  background-image: url("../images/icons/a.jpg");
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected "{".\a     \2577 \a 329 \2502      @include icon($name);\a     \2502                          ^\a     \2575 \a   scss/a.scss 329:25  root stylesheet';
 }
-
-.box3 {
-  color: red !important;
-}
-
-#box3 {
-  color: blue;
-}
-
-.box4 {
-  width: 140px;
-  height: 300px;
-  color: red;
-}
-
-.box5 {
-  color: red;
-  background-color: tomato;
-}
-
-.box6 {
-  background-color: dodgerblue;
-}
-
-.box {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.wrap {
-  background-color: rgba(255, 0, 0, 0.7);
-  background-color: rgba(255, 0, 0, 0.7);
-  background-color: 0.5;
-  background-color: 0.5;
-}
-
-.header-top {
-  background-color: red;
-}
-
-.header-middle {
-  background-color: green;
-}
-
-.header-bottom {
-  background-color: blue;
-}
-
-.modal {
-  background-color: red;
-  width: 100%;
-}
-
-/*
-.header-top { background-color: red}
-.header-middle { background-color: green}
-.header-bottom { background-color: blue}
-*/
-/*
-^ start
-$ end 
-~ include
-*/
-div[title=hello] {
-  background-color: red;
-  font-size: 100px;
-}
-
-a[href^=http] {
-  font-size: 100px;
-}
-
-img {
-  border: 5px solid black;
-}
-
-img[src$=".png"] {
-  border-color: red;
-}
-
-.bg {
-  background-color: red;
-}
-
-.width {
-  background-color: 100%;
-}
-
-.height {
-  background-color: 400px;
-}
-
-.max-width {
-  background-color: 600p;
-}
-
-.wrap div[data-type=top] {
-  background-color: red;
-}
-.wrap div[data-type=middle] {
-  background-color: green;
-}
-.wrap div[data-type=bottom] {
-  background-color: blue;
-}
-
-.box7 {
-  background-color: blue;
-}
-.box7:nth-child(2) {
-  color: red;
-}
-
-li:nth-child(1) {
-  background-image: url("alert.png");
-}
-
-li:nth-child(2) {
-  background-image: url("profile.png");
-}
-
-li:nth-child(3) {
-  background-image: url("logout.png");
-}
-
-li:nth-child(4) {
-  background-image: url("login.png");
-}
-
-/*
-@debug nth(10px 12px 16px, 2);
-@debug nth($colors, -2);
-*/
-
-/*# sourceMappingURL=a.css.map */

@@ -1,7 +1,9 @@
+@use 'sass:math';
+
 $msg : "hello";
 $color : "red";
 $defaultUrl : '../images/';
-
+$imageUrl : '../images/';
 .box1 {
     background-color:unquote($color);
 }
@@ -175,3 +177,155 @@ $imgList : 'alert','profile','logout','login';
 @debug nth(10px 12px 16px, 2);
 @debug nth($colors, -2);
 */
+
+
+$url : 'AbcDe.jpg';
+$not : unquote($url);
+.box {
+    background-image:url(quote($not));
+}
+
+@debug to-upper-case($url);
+@debug to-lower-case($url);
+@debug str-index($url, 'D');
+
+$numbers : 1, 100,20,30,21;
+@debug min($numbers...);
+@debug max($numbers...);
+
+$num : calc(random() * 10);
+@debug $num;
+@debug ceil($num); 
+
+@debug math.min($numbers...);
+
+$a : -1;
+$b : 1;
+@debug abs($a);
+@debug abs($b);
+
+
+$text : 'AbcDe.jpg';
+@debug str-index($text, 'D');
+@debug str-slice($text, -1, 3);
+// img[src$='.jpg']
+.box {
+    background-color:mix(red,blue);
+}
+
+$x : 30px;
+$y : 40em;
+@debug unit($x);
+@debug unitless($y);
+
+@function sum($a, $b) {
+    @return calc($a + $b);
+}
+
+
+@debug 'compare:', comparable($x,$y);
+
+@function unitcheck($value) {
+    @if (unitless($value)) {
+        @return $value + px;
+    }@else{
+        @return $value
+    }
+}
+
+@debug unitcheck(30);
+@debug unitcheck(30%);
+
+@mixin font ($f, $l:null, $w:null) { 
+    font-size: unitcheck($f); 
+
+    @if( $f > 24) {
+        color:red;
+        letter-spacing:-1px;
+    }
+    line-height: $l;
+    font-weight: $w;
+
+    // @include media($mobile) {
+    //     $f : $f * 0.5 + vw;
+    // }
+}
+
+.p {
+    // font-family:'roboto',sans-serif;
+    // font-size:20px;
+    // line-height:1.5;
+    // font-weight:600;
+    // font-style:italic;
+    // font-variant:small-caps;
+
+    font:900 italic 20px/1.5 'roboto',sans-serif;
+   
+    /*
+    font:  {
+        family:'roboto',sans-serif;
+        size:20px;
+        weight:600;
+        style:italic;
+    };
+    */
+
+    background : {
+        image:url('a.jpg');
+        color : red;
+        position:left top;
+        size: cover;
+    }
+
+    background:red  url(a.jpg) left top/cover;
+    
+     
+}
+.txt1 {
+    @include font(30, 1.2, 300);
+    width: sum(30px,50%); 
+}
+.txt2 {
+    @include font(20);
+}
+@function vWidth($s, $c, $w:100%){
+    $s: unitcheck($s);
+    $w: unitcheck($w);
+    @return calc(($w - ($c - 1)* $s) / $c);
+}
+
+.listBox {
+    width:100%;
+    max-width:900px;
+    outline:1px solid red;
+    margin:50px auto;
+    display:flex;
+    justify-content:space-between;
+    padding:0;list-style:none;
+}
+
+.listBox li {
+    padding:0;margin:0;
+    background-color:gold;
+    // width: calc( (100% - 40px) / 3 );
+    width:vWidth(15, 5);
+}
+
+@mixin icon($img, $size:24px, $bg:null) {
+    background:$bg url($imageUrl + 'icon_' + $img + '.svg') no-repeat center center/contain;
+    width: $size;
+    height: $size;
+}
+
+.icon{
+    @include icon('earth', $bg:yellow);
+}
+
+
+.icons li {
+    $types : 'home','earth','search';
+
+    &:nth-child(#{i })
+    @include icon($name);
+
+}
